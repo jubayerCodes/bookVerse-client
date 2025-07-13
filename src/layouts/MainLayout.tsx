@@ -8,7 +8,7 @@ const MainLayout = () => {
         <>
             <Header />
             <Outlet />
-            <Toaster position='top-right' />
+            <Toaster position='top-center' />
             <h1>Footer</h1>
         </>
     );

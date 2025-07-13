@@ -2,25 +2,29 @@
 import type { IBook } from '@/types';
 import "./BookItem.css"
 import { Button } from '@/components/ui/button';
-import { FaEdit, FaEye, FaRegTrashAlt } from 'react-icons/fa';
+import { FaEye } from 'react-icons/fa';
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import BookBorrowModal from '@/components/Modals/BookBorrowModal/BookBorrowModal';
+import BookUpdateModal from '@/components/Modals/BookUpdateModal/BookUpdateModal';
+import BookDeleteModal from '@/components/Modals/BookDeleteModal/BookDeleteModal';
 
 const BookItem = ({ book }: { book: IBook }) => {
 
     return (
         <>
             <div className='book-item'>
-                <div className="book-info">
-                    <h3 className='text-[var(--heading-color)] text-lg font-semibold'>{book.title}</h3>
-                    <p className='text-[var(--text-color)] text-xs mb-2'>by {book.author}</p>
-                    <div className='flex justify-between items-center mt-2'>
-                        <p className='text-[var(--text-color)] text-xs'><b>Genre:</b> {book.genre}</p>
-                        <p className='text-[var(--text-color)] text-xs'><b>Copies:</b> {book.copies}</p>
-                    </div>
-                    <div className='flex justify-between items-center mt-1'>
-                        <p className='text-[var(--text-color)] text-xs'><b>ISBN:</b> {book.isbn}</p>
-                        <p className='text-[var(--text-color)] text-xs'><b>Available:</b> {book.available ? "✅" : "❌"}</p>
+                <div className='flex flex-col justify-between h-full'>
+                    <div className="book-info">
+                        <h3 className='text-[var(--heading-color)] text-lg font-semibold'>{book.title}</h3>
+                        <p className='text-[var(--text-color)] text-xs mb-2'>by {book.author}</p>
+                        <div className='flex justify-between items-center mt-2'>
+                            <p className='text-[var(--text-color)] text-xs'><b>Genre:</b> {book.genre}</p>
+                            <p className='text-[var(--text-color)] text-xs'><b>Copies:</b> {book.copies}</p>
+                        </div>
+                        <div className='flex justify-between items-center mt-1'>
+                            <p className='text-[var(--text-color)] text-xs'><b>ISBN:</b> {book.isbn}</p>
+                            <p className='text-[var(--text-color)] text-xs'><b>Available:</b> {book.available ? "✅" : "❌"}</p>
+                        </div>
                     </div>
                     <div className='book-actions mt-4 flex justify-between items-stretch'>
 
@@ -64,14 +68,13 @@ const BookItem = ({ book }: { book: IBook }) => {
                         {/* Borrow Book Modal */}
                         <BookBorrowModal book={book} />
 
+                        {/* Update book modal */}
 
-                        <Button size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit gap-[2px] py-1">
-                            <FaEdit /> Update
-                        </Button>
+                        <BookUpdateModal book={book} />
 
-                        <Button size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit gap-[2px] py-1">
-                            <FaRegTrashAlt /> Delete
-                        </Button>
+                        {/* Delete Book modal */}
+
+                        <BookDeleteModal bookId={book?._id} />
                     </div>
                 </div>
             </div >

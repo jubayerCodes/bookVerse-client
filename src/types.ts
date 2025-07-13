@@ -1,8 +1,21 @@
+export const GenreEnum = {
+    FICTION: "FICTION",
+    NON_FICTION: "NON_FICTION",
+    SCIENCE: "SCIENCE",
+    HISTORY: "HISTORY",
+    BIOGRAPHY: "BIOGRAPHY",
+    FANTASY: "FANTASY",
+} as const;
+
+export type GenreType = typeof GenreEnum[keyof typeof GenreEnum];
+
+export const genreOptions: GenreType[] = Object.values(GenreEnum);
+
 export interface IBook {
     _id: string,
     title: string,
     author: string,
-    genre: "FICTION" | "NON_FICTION" | "SCIENCE" | "HISTORY" | "BIOGRAPHY" | "FANTASY",
+    genre: GenreType,
     isbn: string,
     description?: string,
     copies: number,

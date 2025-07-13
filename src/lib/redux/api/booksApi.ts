@@ -39,10 +39,25 @@ export const booksApi = createApi({
                 body: borrow
             }),
             invalidatesTags: ['books'],
+        }),
+        updateBook: builder.mutation<IResponse, Omit<IBook, "createdAt" | "updatedAt" | "available">>({
+            query: (updatedBook) => ({
+                url: `/books/${updatedBook._id}`,
+                method: "PUT",
+                body: updatedBook
+            }),
+            invalidatesTags: ["books"]
+        }),
+        deleteBook: builder.mutation({
+            query: (bookId) => ({
+                url: `/books/${bookId}`,
+                method: "DELETE"
+            }),
+            invalidatesTags: ["books"]
         })
     })
 })
 
-export const { useGetAllBooksQuery, usePostBorrowMutation } = booksApi
+export const { useGetAllBooksQuery, usePostBorrowMutation, useUpdateBookMutation, useDeleteBookMutation } = booksApi
 
 export default booksApi
