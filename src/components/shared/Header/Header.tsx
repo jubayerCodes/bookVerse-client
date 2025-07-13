@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import logo from "@/assets/image/logo.png"
-import { FiHeart, FiShoppingCart } from "react-icons/fi";
+import { FiHeart } from "react-icons/fi";
 import "./Header.css"
 import ActiveNavLink from "../ActiveNavLink/ActiveNavLink";
 
@@ -27,7 +27,7 @@ const Header = () => {
     ]
 
     return (
-        <header className='header py-4'>
+        <header className='header py-4 border-b border-[var(--border-color2)]'>
             <div className="my-container header-container flex justify-between items-center gap-8">
                 <div className="header-logo flex gap-8">
                     <Link to={'/'}>
@@ -45,10 +45,6 @@ const Header = () => {
                     <Link to={'#'}>
                         <FiHeart className='icon' />
                         Wishlist
-                    </Link>
-                    <Link to={'#'}>
-                        <FiShoppingCart className='icon' />
-                        Cart
                     </Link>
                 </div>
             </div>
