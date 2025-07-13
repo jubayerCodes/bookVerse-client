@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const BooksGrid = () => {
 
-    const { data } = useGetAllBooksQuery({ sortBy: "createdAt", sort: "desc" })
+    const { data } = useGetAllBooksQuery({ sortBy: "createdAt", sort: "desc", limit: 8 })
 
     const books = data?.data
 
@@ -25,7 +25,7 @@ const BooksGrid = () => {
                     </div>
                     <div className="mt-8">
                         <div
-                            className="grid grid-cols-6 gap-5"
+                            className="grid grid-cols-4 gap-5"
                         >
                             {
                                 books?.map((book: IBook, i: number) => (

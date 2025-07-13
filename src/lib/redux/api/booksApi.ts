@@ -1,4 +1,4 @@
-import type { IBook, IResponse } from '@/types'
+import type { IBook, IBorrow, IResponse } from '@/types'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 type BookQueryParams = {
@@ -29,11 +29,20 @@ export const booksApi = createApi({
                 const queryString = new URLSearchParams(queryObject).toString();
 
                 return `/books${queryString ? `?${queryString}` : ''}`;
-            }
+            },
+            providesTags: ["books"]
+        }),
+        postBorrow: builder.mutation<IResponse, Omit<IBorrow, "_id">>({
+            query: (borrow) => ({
+                url: "/borrow",
+                method: "POST",
+                body: borrow
+            }),
+            invalidatesTags: ['books'],
         })
     })
 })
 
-export const { useGetAllBooksQuery } = booksApi
+export const { useGetAllBooksQuery, usePostBorrowMutation } = booksApi
 
 export default booksApi

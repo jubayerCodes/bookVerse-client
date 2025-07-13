@@ -1,0 +1,6 @@
+.book-item {
+    border: 2px solid var(--border-color2);
+    border-radius: 6px;
+    padding: 15px;
+    background: var(--background-color2);
+}

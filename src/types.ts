@@ -1,4 +1,5 @@
 export interface IBook {
+    _id: string,
     title: string,
     author: string,
     genre: "FICTION" | "NON_FICTION" | "SCIENCE" | "HISTORY" | "BIOGRAPHY" | "FANTASY",
@@ -6,15 +7,26 @@ export interface IBook {
     description?: string,
     copies: number,
     available: boolean,
-    createdAt?: Date,
-    updatedAt?: Date,
+    createdAt: Date,
+    updatedAt: Date,
 }
 
 export interface IResponse {
     success: boolean,
     message: string,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data?: any,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     error?: any
+}
+
+export interface IBorrow {
+    _id: string,
+    book: string,
+    quantity: number,
+    dueDate: Date
+}
+
+export interface IError {
+    success: boolean,
+    message: string,
+    error: any
 }
