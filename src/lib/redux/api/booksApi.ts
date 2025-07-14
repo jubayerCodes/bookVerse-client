@@ -2,8 +2,8 @@ import type { IBook, IBorrow, IResponse } from '@/types'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 type BookQueryParams = {
-    filter?: IBook["genre"];
-    limit?: number;
+    filter?: IBook["genre"] | null;
+    limit?: string;
     sortBy?: string;
     sort?: 'asc' | 'desc';
 };
@@ -17,6 +17,7 @@ export const booksApi = createApi({
             query: (params) => {
                 if (!params) return '/books';
 
+                console.log(params);
                 const { filter, limit, sort, sortBy } = params;
 
                 const queryObject: Record<string, string> = {};

@@ -24,6 +24,16 @@ export interface IBook {
     updatedAt: Date,
 }
 
+export const bookKeys = [
+    "title",
+    "author",
+    "isbn",
+    "copies",
+    "available",
+    "createdAt",
+    "updatedAt",
+]
+
 export interface IResponse {
     success: boolean,
     message: string,

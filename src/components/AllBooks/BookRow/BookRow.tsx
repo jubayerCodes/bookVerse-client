@@ -11,7 +11,7 @@ const BookRow = ({ book }: { book: IBook }) => {
     return (
         <>
             <TableRow className="border-[var(--border-color2)]">
-                <TableCell className="font-medium pl-4">{book.title}</TableCell>
+                <TableCell className="font-medium pl-4 w-[300px]">{book.title}</TableCell>
                 <TableCell className='text-xs'>{book.author}</TableCell>
                 <TableCell className='text-xs'>{book.genre}</TableCell>
                 <TableCell className='text-xs'>{book.isbn}</TableCell>
