@@ -27,7 +27,7 @@ const BorrowSummary = () => {
                 <section className="all-books section">
                     <div className="my-container">
                         <div className="flex flex-col gap-3 sm:gap-0 sm:flex-row items-stretch sm:justify-between">
-                            <div className="flex justify-start gap-4">
+                            <div className="flex justify-start gap-4 dark:text-[var(--text-color)]">
                                 <Select onValueChange={(value) => {
                                     setLimit(value)
                                     setPage(1)
