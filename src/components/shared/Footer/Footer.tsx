@@ -26,14 +26,14 @@ const Footer = () => {
                                 </p>
                             </div>
 
-                            {/* Quick Links */}
+
                             <div className="space-y-4">
                                 <h3 className="text-sm font-semibold dark:text-white uppercase tracking-wide">Quick Links</h3>
                                 <ul className="space-y-2">
-                                    <li><a href="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Home</a></li>
-                                    <li><a href="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">All Books</a></li>
-                                    <li><a href="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Add Book</a></li>
-                                    <li><a href="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Borrow Summary</a></li>
+                                    <li><Link to="/" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Home</Link></li>
+                                    <li><Link to="/books" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">All Books</Link></li>
+                                    <li><Link to="/create-book" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Add Book</Link></li>
+                                    <li><Link to="/borrow-summary" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Borrow Summary</Link></li>
                                 </ul>
                             </div>
 
@@ -41,10 +41,10 @@ const Footer = () => {
                             <div className="space-y-4">
                                 <h3 className="text-sm font-semibold dark:text-white uppercase tracking-wide">Support</h3>
                                 <ul className="space-y-2">
-                                    <li><a href="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Help Center</a></li>
-                                    <li><a href="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Contact Us</a></li>
-                                    <li><a href="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Privacy Policy</a></li>
-                                    <li><a href="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Terms of Service</a></li>
+                                    <li><Link to="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Help Center</Link></li>
+                                    <li><Link to="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Contact Us</Link></li>
+                                    <li><Link to="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Privacy Policy</Link></li>
+                                    <li><Link to="#" className="text-[var(--text-color)] hover:text-red-600 transition-colors duration-200 text-sm">Terms of Service</Link></li>
                                 </ul>
                             </div>
 
