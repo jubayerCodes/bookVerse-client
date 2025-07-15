@@ -14,6 +14,7 @@ import { CalendarIcon } from 'lucide-react';
 import { Calendar } from '@/components/ui/calendar';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
+import { useNavigate } from 'react-router';
 
 type BorrowFormValues = {
     quantity: number;
@@ -23,6 +24,7 @@ type BorrowFormValues = {
 const BookBorrowModal = ({ book }: { book: IBook }) => {
 
     const [borrowOpen, setBorrowOpen] = useState(false)
+    const navigate = useNavigate()
 
 
     const borrowForm = useForm<BorrowFormValues>({
@@ -51,6 +53,7 @@ const BookBorrowModal = ({ book }: { book: IBook }) => {
                 toast.success(res?.message)
                 borrowForm.reset()
                 setBorrowOpen(false)
+                navigate('/borrow-summary')
             }
         } catch (error: any) {
             toast.error(error?.data?.message)
@@ -62,7 +65,7 @@ const BookBorrowModal = ({ book }: { book: IBook }) => {
     return (
         <>
             <Dialog open={borrowOpen} onOpenChange={setBorrowOpen}>
-                <Button onClick={() => setBorrowOpen(true)} size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit gap-[2px] py-1">
+                <Button onClick={() => setBorrowOpen(true)} size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit gap-[2px] py-1 dark:text-white">
                     <FaBookBookmark /> Borrow
                 </Button>
                 <DialogContent className="sm:max-w-[425px]">
@@ -132,7 +135,7 @@ const BookBorrowModal = ({ book }: { book: IBook }) => {
                             </div>
                             <DialogFooter>
                                 <DialogClose asChild>
-                                    <Button variant="outline" className='cursor-pointer'>Cancel</Button>
+                                    <Button variant="outline" className='cursor-pointer dark:text-white'>Cancel</Button>
                                 </DialogClose>
                                 <Button type="submit" className='cursor-pointer'>Borrow</Button>
                             </DialogFooter>

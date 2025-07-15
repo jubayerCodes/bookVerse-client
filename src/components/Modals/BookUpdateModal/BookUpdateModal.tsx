@@ -70,7 +70,7 @@ const BookUpdateModal = ({ book }: { book: IBook }) => {
     return (
         <>
             <Dialog open={open} onOpenChange={setOpen}>
-                <Button onClick={() => setOpen(true)} size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit gap-[2px] py-1">
+                <Button onClick={() => setOpen(true)} size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit gap-[2px] py-1 dark:text-white">
                     <FaEdit /> Update
                 </Button>
                 <DialogContent className="sm:max-w-[500px]">
@@ -168,10 +168,10 @@ const BookUpdateModal = ({ book }: { book: IBook }) => {
                                     rules={{ required: true }}
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Bio</FormLabel>
+                                            <FormLabel>Description</FormLabel>
                                             <FormControl>
                                                 <Textarea
-                                                    placeholder="Tell us a little bit about yourself"
+                                                    placeholder="Book description"
                                                     className="resize-none"
                                                     {...field}
                                                 />
@@ -184,7 +184,7 @@ const BookUpdateModal = ({ book }: { book: IBook }) => {
 
                             <DialogFooter>
                                 <DialogClose asChild>
-                                    <Button variant="outline" className='cursor-pointer'>Cancel</Button>
+                                    <Button variant="outline" className='cursor-pointer dark:text-white'>Cancel</Button>
                                 </DialogClose>
                                 <Button type="submit" className='cursor-pointer'>Update</Button>
                             </DialogFooter>

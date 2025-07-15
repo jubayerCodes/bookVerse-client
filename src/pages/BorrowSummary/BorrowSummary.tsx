@@ -24,7 +24,7 @@ const BorrowSummary = () => {
         <>
             <>
                 <section className="all-books section">
-                    <div className="my-container py-10">
+                    <div className="my-container">
                         <div className="flex flex-col gap-3 sm:gap-0 sm:flex-row items-stretch sm:justify-between">
                             <div className="flex justify-start gap-4">
                                 <Select onValueChange={(value) => {
@@ -65,7 +65,7 @@ const BorrowSummary = () => {
                                 </TableBody>
                             </Table>
                         </div>
-                        <div className="w-full flex justify-center xl:justify-end">
+                        <div className="w-full flex justify-center lg:justify-end">
                             <div>
                                 <PaginationWrapper meta={data?.meta as IMeta} setPage={setPage} />
                             </div>

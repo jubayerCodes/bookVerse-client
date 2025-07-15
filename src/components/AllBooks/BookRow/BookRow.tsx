@@ -10,7 +10,7 @@ import { FaEye } from 'react-icons/fa';
 const BookRow = ({ book }: { book: IBook }) => {
     return (
         <>
-            <TableRow className="border-[var(--border-color2)]">
+            <TableRow className="border-[var(--border-color2)] dark:text-[var(--text-color)]">
                 <TableCell className="font-medium pl-4 w-[300px]">{book.title}</TableCell>
                 <TableCell className='text-xs'>{book.author}</TableCell>
                 <TableCell className='text-xs'>{book.genre}</TableCell>
@@ -22,7 +22,7 @@ const BookRow = ({ book }: { book: IBook }) => {
                     {/* View Book Modal */}
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Button size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit py-1 gap-[2px]">
+                            <Button size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit py-1 gap-[2px] dark:text-white">
                                 <FaEye /> View
                             </Button>
                         </DialogTrigger>
@@ -48,7 +48,7 @@ const BookRow = ({ book }: { book: IBook }) => {
                             </div>
                             <DialogFooter>
                                 <DialogClose asChild>
-                                    <Button variant="outline">Close</Button>
+                                    <Button variant="outline" className='dark:text-white'>Close</Button>
                                 </DialogClose>
                             </DialogFooter>
                         </DialogContent>

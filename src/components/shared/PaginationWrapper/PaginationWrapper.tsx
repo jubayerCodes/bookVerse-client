@@ -37,17 +37,17 @@ const PaginationWrapper = ({ meta, setPage }: { meta: IMeta, setPage: Dispatch<S
             <Pagination>
                 <PaginationContent>
                     <PaginationItem>
-                        <PaginationPrevious onClick={() => handlePrev()} className={cn("cursor-pointer", {
+                        <PaginationPrevious onClick={() => handlePrev()} className={cn("cursor-pointer dark:text-accent-foreground", {
                             "bg-accent text-accent-foreground cursor-no-drop": meta?.page <= 1
                         })} />
                     </PaginationItem>
                     {
                         pages?.map((page: number, idx: number) => <PaginationItem>
-                            <PaginationLink href="#" key={idx} isActive={page === meta?.page} onClick={() => setPage(page)} className="cursor-pointer">{page}</PaginationLink>
+                            <PaginationLink href="#" key={idx} isActive={page === meta?.page} onClick={() => setPage(page)} className="cursor-pointer dark:text-[var(--text-color)]">{page}</PaginationLink>
                         </PaginationItem>)
                     }
                     <PaginationItem>
-                        <PaginationNext onClick={() => handleNext()} className={cn("cursor-pointer", {
+                        <PaginationNext onClick={() => handleNext()} className={cn("cursor-pointer dark:text-accent-foreground", {
                             "bg-accent text-accent-foreground cursor-no-drop": meta?.page === pages?.length
                         })} />
                     </PaginationItem>

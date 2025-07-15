@@ -26,13 +26,13 @@ const BookItem = ({ book }: { book: IBook }) => {
                             <p className='text-[var(--text-color)] text-xs'><b>Available:</b> {book.available ? "✅" : "❌"}</p>
                         </div>
                     </div>
-                    <div className='book-actions mt-4 flex justify-between items-stretch'>
+                    <div className='book-actions mt-4 flex justify-center md:justify-between gap-2 md:gap-0 items-stretch'>
 
 
                         {/* View Book Modal */}
                         <Dialog>
                             <DialogTrigger asChild>
-                                <Button size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit py-1 gap-[2px]">
+                                <Button size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit py-1 gap-[2px] dark:text-white">
                                     <FaEye /> View
                                 </Button>
                             </DialogTrigger>
@@ -58,7 +58,7 @@ const BookItem = ({ book }: { book: IBook }) => {
                                 </div>
                                 <DialogFooter>
                                     <DialogClose asChild>
-                                        <Button variant="outline">Close</Button>
+                                        <Button variant="outline" className='dark:text-white'>Close</Button>
                                     </DialogClose>
                                 </DialogFooter>
                             </DialogContent>

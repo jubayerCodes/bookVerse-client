@@ -12,11 +12,10 @@ const BooksGrid = () => {
 
     return (
         <>
-            <section>
-                <div className='my-container py-10 relative'>
-                    <div className='flex justify-between items-end'>
+            <section className="section">
+                <div className='my-container relative'>
+                    <div className='flex justify-between items-center'>
                         <div>
-                            <span className='bg-[var(--primary-color)] px-2 py-0.5 text-white text-sm rounded-[2px]'>Books</span>
                             <h2 className='mt-1'>Popular Books</h2>
                         </div>
                         <Link to={"/books"} className='btn-link'>
@@ -25,7 +24,7 @@ const BooksGrid = () => {
                     </div>
                     <div className="mt-8">
                         <div
-                            className="grid grid-cols-4 gap-5"
+                            className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
                         >
                             {
                                 books?.map((book: IBook, i: number) => (

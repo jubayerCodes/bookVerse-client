@@ -27,7 +27,7 @@ const BookDeleteModal = ({ bookId }: { bookId: string }) => {
     return (
         <>
             <Dialog open={open} onOpenChange={setOpen}>
-                <Button onClick={() => setOpen(true)} size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit gap-[2px] py-1">
+                <Button onClick={() => setOpen(true)} size={"sm"} variant="outline" className="border-[1px] border-[var(--border-color2)] cursor-pointer text-[10px] flex flex-col items-center h-fit gap-[2px] py-1 dark:text-white">
                     <FaRegTrashAlt /> Delete
                 </Button>
                 <DialogContent className="sm:max-w-[425px]">
@@ -38,7 +38,7 @@ const BookDeleteModal = ({ bookId }: { bookId: string }) => {
                     </div>
                     <DialogFooter className="sm:justify-center">
                         <DialogClose asChild>
-                            <Button variant="outline" className="cursor-pointer">Cancel</Button>
+                            <Button variant="outline" className="cursor-pointer dark:text-white">Cancel</Button>
                         </DialogClose>
                         <Button onClick={() => handleDeleteBook()} className="bg-red-500 cursor-pointer hover:bg-red-700">Yes, Delete</Button>
                     </DialogFooter>

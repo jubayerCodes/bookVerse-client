@@ -17,7 +17,7 @@ const AllBooks = () => {
     const [genre, setGenre] = useState<GenreType | "">("");
     const [limit, setLimit] = useState<string>("");
     const [sortBy, setSortBy] = useState<string>("createdAt");
-    const [sort, setSort] = useState<"asc" | "desc">("asc");
+    const [sort, setSort] = useState<"asc" | "desc">("desc");
     const [page, setPage] = useState<number>(1)
 
     const { data } = useGetAllBooksQuery({
@@ -33,7 +33,7 @@ const AllBooks = () => {
     return (
         <>
             <section className="all-books section">
-                <div className="my-container py-10">
+                <div className="my-container">
                     <div className="flex flex-col gap-3 sm:gap-0 sm:flex-row items-stretch sm:justify-between">
                         <div className="flex justify-start gap-4">
                             <Select onValueChange={(value: GenreType) => {
@@ -72,7 +72,7 @@ const AllBooks = () => {
                                 </SelectContent>
                             </Select>
                         </div>
-                        <div className="flex justify-start gap-4">
+                        <div className="flex justify-start gap-4 dark:text-[var(--text-color)]">
                             <Select onValueChange={(value) => setSortBy(value)} value={sortBy}>
                                 <SelectTrigger className="w-full sm:w-[150px]">
                                     <SelectValue placeholder="Sort by" />
@@ -124,7 +124,7 @@ const AllBooks = () => {
                             </TableBody>
                         </Table>
                     </div>
-                    <div className="w-full flex justify-center xl:justify-end">
+                    <div className="w-full flex justify-center lg:justify-end">
                         <div>
                             <PaginationWrapper meta={data?.meta as IMeta} setPage={setPage} />
                         </div>
