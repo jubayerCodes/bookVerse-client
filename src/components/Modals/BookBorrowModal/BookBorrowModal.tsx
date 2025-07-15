@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { usePostBorrowMutation } from '@/lib/redux/api/booksApi';
 import type { IBook, IBorrow } from '@/types';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaBookBookmark } from 'react-icons/fa6';
 import { toast } from 'sonner';
 

@@ -1,4 +1,5 @@
 import BookRow from "@/components/AllBooks/BookRow/BookRow";
+import PaginationWrapper from "@/components/shared/PaginationWrapper/PaginationWrapper";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import {
     Table,
@@ -8,7 +9,7 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { useGetAllBooksQuery } from "@/lib/redux/api/booksApi";
-import { bookKeys, genreOptions, type GenreType, type IBook } from "@/types";
+import { bookKeys, genreOptions, type GenreType, type IBook, type IMeta } from "@/types";
 import { useState } from "react";
 
 const AllBooks = () => {
@@ -17,10 +18,12 @@ const AllBooks = () => {
     const [limit, setLimit] = useState<string>("");
     const [sortBy, setSortBy] = useState<string>("createdAt");
     const [sort, setSort] = useState<"asc" | "desc">("asc");
+    const [page, setPage] = useState<number>(1)
 
     const { data } = useGetAllBooksQuery({
         filter: genre || undefined,
         limit: limit || undefined,
+        page: page,
         sortBy,
         sort
     })
@@ -29,13 +32,15 @@ const AllBooks = () => {
 
     return (
         <>
-            <section className="all-books">
+            <section className="all-books section">
                 <div className="my-container py-10">
-                    <div className="flex justify-between">
-
+                    <div className="flex flex-col gap-3 sm:gap-0 sm:flex-row items-stretch sm:justify-between">
                         <div className="flex justify-start gap-4">
-                            <Select onValueChange={(value: GenreType) => setGenre(value)} value={genre}>
-                                <SelectTrigger className="w-[150px]">
+                            <Select onValueChange={(value: GenreType) => {
+                                setGenre(value)
+                                setPage(1)
+                            }} value={genre}>
+                                <SelectTrigger className="w-full sm:w-[150px]">
                                     <SelectValue placeholder="Select a genre" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -48,9 +53,12 @@ const AllBooks = () => {
                                 </SelectContent>
                             </Select>
 
-                            <Select onValueChange={(value) => setLimit(value)} value={limit}>
-                                <SelectTrigger className="w-[150px]">
-                                    <SelectValue placeholder="Select limit" />
+                            <Select onValueChange={(value) => {
+                                setLimit(value)
+                                setPage(1)
+                            }} value={limit}>
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Limit" />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
@@ -66,7 +74,7 @@ const AllBooks = () => {
                         </div>
                         <div className="flex justify-start gap-4">
                             <Select onValueChange={(value) => setSortBy(value)} value={sortBy}>
-                                <SelectTrigger className="w-[150px]">
+                                <SelectTrigger className="w-full sm:w-[150px]">
                                     <SelectValue placeholder="Sort by" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -80,7 +88,7 @@ const AllBooks = () => {
                             </Select>
 
                             <Select onValueChange={(value: "asc" | "desc") => setSort(value)} value={sort}>
-                                <SelectTrigger className="w-[150px]">
+                                <SelectTrigger>
                                     <SelectValue placeholder="Select order" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -116,9 +124,13 @@ const AllBooks = () => {
                             </TableBody>
                         </Table>
                     </div>
-                    <div></div>
+                    <div className="w-full flex justify-center xl:justify-end">
+                        <div>
+                            <PaginationWrapper meta={data?.meta as IMeta} setPage={setPage} />
+                        </div>
+                    </div>
                 </div>
-            </section >
+            </section>
         </>
     );
 };

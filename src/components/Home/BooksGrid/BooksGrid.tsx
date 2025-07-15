@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const BooksGrid = () => {
 
-    const { data } = useGetAllBooksQuery({ sortBy: "createdAt", sort: "desc", limit: 8 })
+    const { data } = useGetAllBooksQuery({ sortBy: "createdAt", sort: "desc", limit: "8" })
 
     const books = data?.data
 

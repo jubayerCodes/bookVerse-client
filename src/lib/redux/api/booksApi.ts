@@ -6,23 +6,29 @@ type BookQueryParams = {
     limit?: string;
     sortBy?: string;
     sort?: 'asc' | 'desc';
+    page?: number
+};
+
+type BorrowQueryParams = {
+    limit?: string;
+    page?: number
 };
 
 export const booksApi = createApi({
     reducerPath: 'booksApi',
-    tagTypes: ['books'],
+    tagTypes: ['books', "borrows"],
     baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_API }),
     endpoints: (builder) => ({
         getAllBooks: builder.query<IResponse, BookQueryParams | void>({
             query: (params) => {
                 if (!params) return '/books';
 
-                console.log(params);
-                const { filter, limit, sort, sortBy } = params;
+                const { filter, limit, sort, sortBy, page } = params;
 
                 const queryObject: Record<string, string> = {};
 
                 if (filter) queryObject.filter = filter;
+                if (page) queryObject.page = page.toString();
                 if (limit) queryObject.limit = limit.toString();
                 if (sortBy) queryObject.sortBy = sortBy;
                 if (sort) queryObject.sort = sort;
@@ -39,7 +45,7 @@ export const booksApi = createApi({
                 method: "POST",
                 body: borrow
             }),
-            invalidatesTags: ['books'],
+            invalidatesTags: ["books", "borrows"]
         }),
         updateBook: builder.mutation<IResponse, Omit<IBook, "createdAt" | "updatedAt" | "available">>({
             query: (updatedBook) => ({
@@ -47,18 +53,36 @@ export const booksApi = createApi({
                 method: "PUT",
                 body: updatedBook
             }),
-            invalidatesTags: ["books"]
+            invalidatesTags: ["books", "borrows"]
         }),
-        deleteBook: builder.mutation({
+        deleteBook: builder.mutation<IResponse, string>({
             query: (bookId) => ({
                 url: `/books/${bookId}`,
                 method: "DELETE"
             }),
-            invalidatesTags: ["books"]
+            invalidatesTags: ["books", "borrows"]
+        }),
+        getBorrowSummary: builder.query<IResponse, BorrowQueryParams>({
+            query: (params) => {
+
+                if (!params) return '/borrow';
+
+                const { limit, page } = params;
+
+                const queryObject: Record<string, string> = {};
+
+                if (page) queryObject.page = page.toString();
+                if (limit) queryObject.limit = limit.toString();
+
+                const queryString = new URLSearchParams(queryObject).toString();
+
+                return `/borrow${queryString ? `?${queryString}` : ''}`
+            },
+            providesTags: ["borrows"]
         })
     })
 })
 
-export const { useGetAllBooksQuery, usePostBorrowMutation, useUpdateBookMutation, useDeleteBookMutation } = booksApi
+export const { useGetAllBooksQuery, usePostBorrowMutation, useUpdateBookMutation, useDeleteBookMutation, useGetBorrowSummaryQuery } = booksApi
 
 export default booksApi

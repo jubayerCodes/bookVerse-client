@@ -27,7 +27,7 @@ const Header = () => {
     ]
 
     return (
-        <header className='header py-4 border-b border-[var(--border-color2)]'>
+        <header className='header py-4 border-b border-[var(--border-color2)] px-5 xl:px-0'>
             <div className="my-container header-container flex justify-between items-center gap-8">
                 <div className="header-logo flex gap-8">
                     <Link to={'/'}>

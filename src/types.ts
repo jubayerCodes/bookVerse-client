@@ -34,11 +34,19 @@ export const bookKeys = [
     "updatedAt",
 ]
 
+export interface IMeta {
+    total: number;
+    page: number;
+    pages: number;
+    limit: number;
+}
+
 export interface IResponse {
     success: boolean,
     message: string,
     data?: any,
-    error?: any
+    error?: any,
+    meta?: IMeta
 }
 
 export interface IBorrow {
@@ -46,6 +54,15 @@ export interface IBorrow {
     book: string,
     quantity: number,
     dueDate: Date
+}
+
+export interface ISummedBorrow {
+    _id: string,
+    book: {
+        title: string,
+        isbn: string,
+    }
+    totalQuantity: number
 }
 
 export interface IError {

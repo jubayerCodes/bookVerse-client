@@ -138,7 +138,7 @@ h2 {
 }
 
 .my-container {
-  @apply w-[1200px] mx-auto;
+  @apply max-w-[1200px] mx-auto;
 }
 
 .btn {
@@ -149,4 +149,8 @@ h2 {
 .btn-link {
   @apply text-[var(--primary-color)] text-base font-semibold cursor-pointer transition capitalize hover:text-[var(--secondary-color)] underline;
   font-family: var(--font-primary);
+}
+
+.section {
+  @apply xl:px-0 px-4 sm:px-5
 }
