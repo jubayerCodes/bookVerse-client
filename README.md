@@ -13,11 +13,6 @@ A **fully functional client-side library management system** built with **React*
 
 ## ✨ Features
 
-### 🚀 Public Routes (No Authentication)
-- All features are publicly accessible without login or user authentication.
-
----
-
 ### 🛠️ Book Management
 
 #### 📋 Book List Table
