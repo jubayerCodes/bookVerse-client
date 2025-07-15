@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import logo from "@/assets/image/logo.png"
+import logo2 from "@/assets/image/logo-alt.png"
 import "./Header.css"
 import ActiveNavLink from "../ActiveNavLink/ActiveNavLink";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -39,8 +40,11 @@ const Header = () => {
         <header className='header py-4 border-b border-[var(--border-color2)] px-5 xl:px-0'>
             <div className="my-container header-container flex justify-between items-center gap-8">
                 <div className="header-logo flex gap-8">
-                    <Link to={'/'}>
+                    <Link to={'/'} className="dark:hidden">
                         <img src={logo} alt="Book Nest" className='w-[120px]' />
+                    </Link>
+                    <Link to={'/'} className="hidden dark:block">
+                        <img src={logo2} alt="Book Nest" className='w-[120px]' />
                     </Link>
                 </div>
                 <div className="header-menu hidden md:flex justify-center">

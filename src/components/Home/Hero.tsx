@@ -8,8 +8,8 @@ const Hero = () => {
 
     return (
         <>
-            <section id="hero" className="bg-[#d0e1e7] dark:bg-accent py-[200px] flex items-center relative xl:px-0 px-4 sm:px-5">
-                <div className="my-container flex flex-col items-center  md:items-start">
+            <section id="hero" className="bg-[#d0e1e7] dark:bg-accent py-[100px] sm:py-[200px] flex items-center relative xl:px-0 px-4 sm:px-5">
+                <div className="my-container flex flex-col items-center  md:items-start z-50">
                     <span className="offer text-sm text-[var(--secondary-color)] font-semibold">Up to 30% Off</span>
                     <h1 className="text-[var(--heading-color)] text-3xl lg:text-5xl font-bold my-5 leading-[1.3em]">
                         Explore and Borrow<br /> Books at BookVerse
