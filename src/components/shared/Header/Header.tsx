@@ -88,7 +88,7 @@ const Header = () => {
                                 {
                                     menuLinks.map((link, idx) =>
                                         <DropdownMenuItem className="p-0" key={idx} onClick={() => setOpen(false)}>
-                                            <ActiveNavLink to={link.to} className="menu-link text-[var(--heading-color)] text-base font-medium hover:text-[var(--secondary-color)] transition p-2">
+                                            <ActiveNavLink to={link.to} className="menu-link text-[var(--heading-color)] text-base font-medium hover:text-[var(--secondary-color)] transition p-2 w-full">
                                                 {link.label}
 
                                             </ActiveNavLink>

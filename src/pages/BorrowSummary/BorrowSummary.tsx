@@ -2,7 +2,8 @@
 import BorrowRow from "@/components/BorrowSummary/BorrowRow";
 import PaginationWrapper from "@/components/shared/PaginationWrapper/PaginationWrapper";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useGetBorrowSummaryQuery } from "@/lib/redux/api/booksApi";
 import type { IMeta, ISummedBorrow } from "@/types";
 import { useState } from "react";
@@ -13,7 +14,7 @@ const BorrowSummary = () => {
     const [limit, setLimit] = useState<string>("");
     const [page, setPage] = useState<number>(1)
 
-    const { data } = useGetBorrowSummaryQuery({
+    const { data, isLoading } = useGetBorrowSummaryQuery({
         limit: limit || undefined,
         page: page,
     })
@@ -61,6 +62,22 @@ const BorrowSummary = () => {
                                 <TableBody>
                                     {
                                         borrows?.map((borrow: ISummedBorrow) => <BorrowRow key={borrow._id} borrow={borrow} />)
+                                    }
+                                    {
+                                        isLoading &&
+                                        Array.from({ length: 8 }, (_, i) =>
+                                            <TableRow key={i} className="border-[var(--border-color2)] dark:text-[var(--text-color)]">
+                                                <TableCell className="pl-4 w-[300px]">
+                                                    <Skeleton className="h-4 w-3/4 rounded" />
+                                                </TableCell>
+                                                <TableCell>
+                                                    <Skeleton className="h-3 w-2/3 rounded" />
+                                                </TableCell>
+                                                <TableCell className="text-end">
+                                                    <Skeleton className="h-3 w-6 ml-auto rounded" />
+                                                </TableCell>
+                                            </TableRow>
+                                        )
                                     }
                                 </TableBody>
                             </Table>

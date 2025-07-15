@@ -1,9 +1,11 @@
 import BookRow from "@/components/AllBooks/BookRow/BookRow";
 import PaginationWrapper from "@/components/shared/PaginationWrapper/PaginationWrapper";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
     Table,
     TableBody,
+    TableCell,
     TableHead,
     TableHeader,
     TableRow,
@@ -20,7 +22,7 @@ const AllBooks = () => {
     const [sort, setSort] = useState<"asc" | "desc">("desc");
     const [page, setPage] = useState<number>(1)
 
-    const { data } = useGetAllBooksQuery({
+    const { data, isLoading } = useGetAllBooksQuery({
         filter: genre || undefined,
         limit: limit || undefined,
         page: page,
@@ -120,6 +122,39 @@ const AllBooks = () => {
                             <TableBody>
                                 {
                                     books?.map((book: IBook) => <BookRow key={book._id} book={book} />)
+                                }
+                                {
+                                    isLoading &&
+                                    Array.from({ length: 10 }, (_, i) =>
+                                        <TableRow key={i} className="border-[var(--border-color2)] dark:text-[var(--text-color)]">
+                                            <TableCell className="pl-4 w-[300px]">
+                                                <Skeleton className="h-4 w-3/4 rounded" />
+                                            </TableCell>
+                                            <TableCell>
+                                                <Skeleton className="h-3 w-1/2 rounded" />
+                                            </TableCell>
+                                            <TableCell>
+                                                <Skeleton className="h-3 w-1/3 rounded" />
+                                            </TableCell>
+                                            <TableCell>
+                                                <Skeleton className="h-3 w-2/3 rounded" />
+                                            </TableCell>
+                                            <TableCell className="text-center">
+                                                <Skeleton className="h-3 w-6 mx-auto rounded" />
+                                            </TableCell>
+                                            <TableCell className="text-center">
+                                                <Skeleton className="h-3 w-5 mx-auto rounded" />
+                                            </TableCell>
+                                            <TableCell className="text-right pr-4">
+                                                <div className="flex justify-end gap-2">
+                                                    <Skeleton className="h-8 w-12 rounded" />
+                                                    <Skeleton className="h-8 w-12 rounded" />
+                                                    <Skeleton className="h-8 w-12 rounded" />
+                                                    <Skeleton className="h-8 w-12 rounded" />
+                                                </div>
+                                            </TableCell>
+                                        </TableRow>
+                                    )
                                 }
                             </TableBody>
                         </Table>
