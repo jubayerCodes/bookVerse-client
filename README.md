@@ -74,10 +74,8 @@ A **fully functional client-side library management system** built with **React*
 - **Redux Toolkit Query (RTK Query)**
 - **Tailwind CSS**
 - **React Router DOM**
-- **Axios**
 - **React Hook Form** (for forms)
-- **Zod/Yup** (optional - for schema validation)
-- **ShadCN UI** (optional - for better UI components)
+- **ShadCN UI** (for better UI components)
 
 ---
 
