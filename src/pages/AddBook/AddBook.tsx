@@ -64,7 +64,7 @@ const AddBook = () => {
                                             <FormItem>
                                                 <FormLabel className='text-[var(--text-color)]'>Title</FormLabel>
                                                 <FormControl>
-                                                    <Input type="text" placeholder={"Book title"} {...field} className='bg-white' />
+                                                    <Input type="text" placeholder={"Book title"} {...field} className='bg-white dark:text-[var(--text-color)]' />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -78,7 +78,7 @@ const AddBook = () => {
                                             <FormItem>
                                                 <FormLabel className='text-[var(--text-color)]'>Author</FormLabel>
                                                 <FormControl>
-                                                    <Input type="text" placeholder={"Book author"} {...field} className='bg-white' />
+                                                    <Input type="text" placeholder={"Book author"} {...field} className='bg-white dark:text-[var(--text-color)]' />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -92,7 +92,7 @@ const AddBook = () => {
                                             <FormItem>
                                                 <FormLabel className='text-[var(--text-color)]'>ISBN</FormLabel>
                                                 <FormControl>
-                                                    <Input type="text" placeholder={"Book ISBN"} {...field} className='bg-white' />
+                                                    <Input type="text" placeholder={"Book ISBN"} {...field} className='bg-white dark:text-[var(--text-color)]' />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -106,7 +106,7 @@ const AddBook = () => {
                                             <FormItem>
                                                 <FormLabel className='text-[var(--text-color)]'>Copies</FormLabel>
                                                 <FormControl>
-                                                    <Input type="number" placeholder={"Book copies"} {...field} onChange={(e) => field.onChange(Number(e.target.value))} min={0} className='bg-white text-[var(--text-color)]' />
+                                                    <Input type="number" placeholder={"Book copies"} {...field} onChange={(e) => field.onChange(Number(e.target.value))} min={0} className='bg-white text-[var(--text-color)] dark:text-[var(--text-color)]' />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -124,7 +124,7 @@ const AddBook = () => {
                                                 <FormLabel className='text-[var(--text-color)]'>Genre</FormLabel>
                                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                     <FormControl>
-                                                        <SelectTrigger className='w-full bg-white'>
+                                                        <SelectTrigger className='w-full bg-white dark:text-[var(--text-color)]'>
                                                             <SelectValue placeholder="Select genre" />
                                                         </SelectTrigger>
                                                     </FormControl>
@@ -148,7 +148,7 @@ const AddBook = () => {
                                                 <FormControl>
                                                     <Textarea
                                                         placeholder="Book description"
-                                                        className="resize-none bg-white"
+                                                        className="resize-none bg-white dark:text-[var(--text-color)]"
                                                         {...field}
                                                     />
                                                 </FormControl>

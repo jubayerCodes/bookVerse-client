@@ -33,14 +33,14 @@ const BookDeleteModal = ({ bookId }: { bookId: string }) => {
                 <DialogContent className="sm:max-w-[425px]">
                     <div className="flex flex-col items-center gap-2">
                         <FaRegTrashAlt className="text-red-500 text-4xl text-center" />
-                        <h3 className="text-xl font-semibold">Are you sure?</h3>
-                        <p className="text-sm text-center">This action is irreversible. The book will be permanently deleted.</p>
+                        <h3 className="text-xl font-semibold dark:text-white">Are you sure?</h3>
+                        <p className="text-sm text-center dark:text-[var(--text-color)]">This action is irreversible. The book will be permanently deleted.</p>
                     </div>
                     <DialogFooter className="sm:justify-center">
                         <DialogClose asChild>
                             <Button variant="outline" className="cursor-pointer dark:text-white">Cancel</Button>
                         </DialogClose>
-                        <Button onClick={() => handleDeleteBook()} className="bg-red-500 cursor-pointer hover:bg-red-700">Yes, Delete</Button>
+                        <Button onClick={() => handleDeleteBook()} className="bg-red-500 cursor-pointer hover:bg-red-700 dark:text-white">Yes, Delete</Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>

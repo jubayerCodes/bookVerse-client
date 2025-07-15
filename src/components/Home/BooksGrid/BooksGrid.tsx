@@ -35,23 +35,10 @@ const BooksGrid = () => {
                             {
                                 isLoading &&
                                 Array.from({ length: 8 }, (_, i) =>
-                                    <div key={i} className="book-item border border-[var(--border-color)] rounded-lg p-4 flex flex-col justify-between h-full space-y-4">
+                                    <div key={i} className="rounded-lg p-4 flex flex-col justify-between h-full space-y-4">
                                         {/* Title & Author */}
-                                        <div className="space-y-2">
-                                            <Skeleton className="h-5 w-3/4 rounded" /> {/* Book Title */}
-                                            <Skeleton className="h-4 w-1/2 rounded" /> {/* Author */}
-                                        </div>
-
-                                        {/* Genre and Copies */}
-                                        <div className="flex justify-between items-center">
-                                            <Skeleton className="h-4 w-1/3 rounded" />
-                                            <Skeleton className="h-4 w-1/4 rounded" />
-                                        </div>
-
-                                        {/* ISBN and Availability */}
-                                        <div className="flex justify-between items-center">
-                                            <Skeleton className="h-4 w-1/3 rounded" />
-                                            <Skeleton className="h-4 w-1/4 rounded" />
+                                        <div className="space-y-1">
+                                            <Skeleton className="h-20 w-full rounded" />
                                         </div>
 
                                         {/* Actions */}

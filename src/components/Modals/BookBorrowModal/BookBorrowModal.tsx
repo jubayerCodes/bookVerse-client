@@ -84,7 +84,7 @@ const BookBorrowModal = ({ book }: { book: IBook }) => {
                                         <FormItem>
                                             <FormLabel>Quantity</FormLabel>
                                             <FormControl>
-                                                <Input type="number" min={1} placeholder={`Min 1 and Max ${book.copies}`} {...field} onChange={(e) => field.onChange(Number(e.target.value))} />
+                                                <Input type="number" min={1} placeholder={`Min 1 and Max ${book.copies}`} {...field} onChange={(e) => field.onChange(Number(e.target.value))} className='dark:text-[var(--text-color)]' />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -103,7 +103,7 @@ const BookBorrowModal = ({ book }: { book: IBook }) => {
                                                         <Button
                                                             variant={"outline"}
                                                             className={cn(
-                                                                "text-left font-normal",
+                                                                "text-left font-normal dark:text-[var(--text-color)]",
                                                                 !field.value && "text-muted-foreground"
                                                             )}
                                                         >

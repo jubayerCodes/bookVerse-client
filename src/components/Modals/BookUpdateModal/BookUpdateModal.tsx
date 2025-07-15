@@ -89,7 +89,7 @@ const BookUpdateModal = ({ book }: { book: IBook }) => {
                                         <FormItem>
                                             <FormLabel>Title</FormLabel>
                                             <FormControl>
-                                                <Input type="text" placeholder={"Book title"} {...field} />
+                                                <Input className='dark:text-[var(--text-color)]' type="text" placeholder={"Book title"} {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -103,7 +103,7 @@ const BookUpdateModal = ({ book }: { book: IBook }) => {
                                         <FormItem>
                                             <FormLabel>Author</FormLabel>
                                             <FormControl>
-                                                <Input type="text" placeholder={"Book author"} {...field} />
+                                                <Input className='dark:text-[var(--text-color)]' type="text" placeholder={"Book author"} {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -117,7 +117,7 @@ const BookUpdateModal = ({ book }: { book: IBook }) => {
                                         <FormItem>
                                             <FormLabel>ISBN</FormLabel>
                                             <FormControl>
-                                                <Input type="text" placeholder={"Book ISBN"} {...field} />
+                                                <Input className='dark:text-[var(--text-color)]' type="text" placeholder={"Book ISBN"} {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -131,7 +131,7 @@ const BookUpdateModal = ({ book }: { book: IBook }) => {
                                         <FormItem>
                                             <FormLabel>Copies</FormLabel>
                                             <FormControl>
-                                                <Input type="number" placeholder={"Book copies"} {...field} onChange={(e) => field.onChange(Number(e.target.value))} min={0} />
+                                                <Input type="number" placeholder={"Book copies"} {...field} onChange={(e) => field.onChange(Number(e.target.value))} min={0} className='dark:text-[var(--text-color)]' />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -148,7 +148,7 @@ const BookUpdateModal = ({ book }: { book: IBook }) => {
                                             <FormLabel>Genre</FormLabel>
                                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                 <FormControl>
-                                                    <SelectTrigger className='w-full'>
+                                                    <SelectTrigger className='w-full dark:text-[var(--text-color)]'>
                                                         <SelectValue placeholder="Select genre" />
                                                     </SelectTrigger>
                                                 </FormControl>
@@ -172,7 +172,7 @@ const BookUpdateModal = ({ book }: { book: IBook }) => {
                                             <FormControl>
                                                 <Textarea
                                                     placeholder="Book description"
-                                                    className="resize-none"
+                                                    className="resize-none dark:text-[var(--text-color)]"
                                                     {...field}
                                                 />
                                             </FormControl>
